@@ -1,75 +1,348 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radha Gudewar - Portfolio</title>
     <style>
-        h1, h2 {
-            color: red;
-            font-size: 40px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        p {
-            color: black;
-            font-size: 20px;
-        }
-        ul {
-            color: blue;
-            font-size: 20px;
-        }
+
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
-        header, footer {
-            text-align: center;
-            margin: 20px 0;
-        }
-        img {
-            width: 200px;
-            border-radius: 10px;
-            display: block;
+
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+            font-weight: bold;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 30px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+            font-weight: 400;
+        }
+
+        .about-content {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .education-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #3498db;
+            margin-bottom: 20px;
+        }
+
+        .education-item h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .education-item p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: scale(1.05);
+        }
+
+        .skill-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .skill-item p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .goals-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .goals-list li {
+            background: #ecf0f1;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border-left: 5px solid #e74c3c;
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .goals-list li:before {
+            content: "🎯 ";
+            margin-right: 10px;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            border: 2px solid #ecf0f1;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            border-color: #3498db;
+        }
+
+        .contact-item h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .contact-item p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 25px;
+            }
+
+            .about-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-photo {
+                width: 120px;
+                height: 120px;
+                font-size: 36px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <img src="https://i.postimg.cc/NGbnkvr1/Whats-App-Image-2025-07-29-at-5-52-27-PM.jpg" alt="My Photo">
-        <h1>Gudewar Radha Dnyenashwar</h1>
-        <p>Student of SOP</p>
-    </header>
+    <div class="container">
+        <header>
+            <div class="profile-photo">RG</div>
+            <h1>Radha Gudewar</h1>
+            <p class="subtitle">Aspiring Web Developer | Student | Problem Solver</p>
+        </header>
 
-    <h1>Hi, this is my portfolio</h1>
-    <p>Welcome to my portfolio website</p>
+        <section class="section">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Hello! I'm <span class="highlight">Radha Gudewar</span>, a passionate 17-year-old student with big dreams and an even bigger love for technology.</p>
+                    <p>Originally from <span class="highlight">Maharashtra</span>, I'm currently living in <span class="highlight">Nanded</span> where I'm pursuing my M.A 1st year studies. My journey in academics has been rewarding, and I'm excited about what lies ahead.</p>
+                    <p>I have a deep passion for <span class="highlight">coding and writing</span>. There's something magical about creating something from nothing, whether it's lines of code that come to life on a screen or words that tell a compelling story. I spend most of my time on my laptop, typing away and solving problems that challenge my mind.</p>
+                    <p>My ultimate dream is to become a <span class="highlight">web developer</span> and use my skills to create meaningful digital experiences that make a difference in people's lives.</p>
+                </div>
+            </div>
+        </section>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Hello, I am Radha Gudewar, currently learning programming. I love coding.</p>
-    </section>
+        <section class="section">
+            <h2>Education</h2>
+            <div class="education-item">
+                <h3>Higher Secondary Education (12th)</h3>
+                <p><strong>Institution:</strong> Kusumatai Ju College</p>
+                <p><strong>Year:</strong> Passed in 2024</p>
+                <p><strong>Status:</strong> Successfully completed</p>
+            </div>
+            <div class="education-item">
+                <h3>Master of Arts (M.A) - 1st Year</h3>
+                <p><strong>Current Status:</strong> Pursuing</p>
+                <p><strong>Location:</strong> Nanded</p>
+                <p><strong>Focus:</strong> Continuing academic excellence while exploring technology</p>
+            </div>
+        </section>
 
-    <section id="skills">
-        <h2>My Skills</h2>
-        <ul>
-            <li>HTML and CSS</li>
-        </ul>
-    </section>
+        <section class="section">
+            <h2>Skills & Interests</h2>
+            <div class="skills-grid">
+                <div class="skill-item">
+                    <h3>Coding</h3>
+                    <p>Passionate about programming and creating digital solutions</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Writing</h3>
+                    <p>Love expressing ideas through words and storytelling</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Typing</h3>
+                    <p>Fast and accurate typing skills for efficient work</p>
+                </div>
+                <div class="skill-item">
+                    <h3>Problem Solving</h3>
+                    <p>Enjoy tackling challenges and finding creative solutions</p>
+                </div>
+            </div>
+        </section>
 
-    <h3>Achievements</h3>
-    <section id="achievements">
-        <h2>Worked as Volunteer in NGO Gram Urja</h2>
-        <p>Learning HTML and CSS</p>
-    </section>
+        <section class="section">
+            <h2>Future Goals</h2>
+            <ul class="goals-list">
+                <li>Become a professional web developer</li>
+                <li>Master modern web technologies and frameworks</li>
+                <li>Create impactful websites and applications</li>
+                <li>Contribute to open-source projects</li>
+                <li>Build a successful career in technology</li>
+                <li>Inspire other young people to pursue coding</li>
+            </ul>
+        </section>
 
-    <h3>Contact</h3>
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: radhagudewar25@nabgurukul.org</p>
-        <p>Phone: 9022168900</p>
-        <p>Student of Programming</p>
-    </section>
+        <section class="section">
+            <h2>Contact</h2>
+            <p style="text-align: center; margin-bottom: 20px; font-size: 1.1rem; color: #555;">
+                I'd love to connect with fellow developers, mentors, and anyone interested in technology!
+            </p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p>radha.gudewar@email.com</p>
+                </div>
+                <div class="contact-item">
+                    <h3>Location</h3>
+                    <p>Nanded, Maharashtra</p>
+                </div>
+                <div class="contact-item">
+                    <h3>LinkedIn</h3>
+                    <p>linkedin.com/in/radha-gudewar</p>
+                </div>
+                <div class="contact-item">
+                    <h3>GitHub</h3>
+                    <p>github.com/radha-gudewar</p>
+                </div>
+            </div>
+        </section>
 
-    <footer>
-        © 2025 Radha Gudewar. All Rights Reserved.
-    </footer>
+        <footer>
+            <p>&copy; 2024 Radha Gudewar. Built with passion using HTML & CSS.</p>
+        </footer>
+    </div>
 </body>
 </html>
