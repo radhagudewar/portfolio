@@ -1,0 +1,11 @@
+#style.css
+h1,h2{
+    color:red;
+    font-size: 35px;
+}
+p{
+    color:black
+}
+ul{
+    color:blue;
+}
